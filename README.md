@@ -24,3 +24,4 @@ python manage.py search
 
 結果は標準出力に出力されます。
 
+
