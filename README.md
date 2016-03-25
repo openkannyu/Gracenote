@@ -17,9 +17,10 @@ inputMZ.txtには検索したいトラック名アーティスト名を1行ご�
 >Amalgam\tDudley Moore Trio  
 >Apache\tIncredible Bongo Band  
 >Aura\t3io  
->Autmn Leave's\tBill Evans  
+>Autmn Leave's\tBill Evans   
 
 ##Usage
 python manage.py search
 
 結果は標準出力に出力されます。
+
