@@ -19,7 +19,7 @@ import traceback
 from django.conf import settings as st
 from django.core.management.base import BaseCommand
 
-#import GracenoteAppException  # @UnresolvedImport
+from Gracenote.management.exception.GracenoteAppExcepion import GracenoteAppExcepion
 import pygn
 
 
@@ -104,11 +104,11 @@ class Command(BaseCommand):
                       + tempo2TEXT + "\t"
                       + albumYear)
 
-#        except GracenoteAppException as he:
-#            logger.error(he.errmsg)
-#            (errtype, errval, errtrace) = sys.exc_info()
-#            hemsg = st.EMS_BODY.format(str(errtype), str(errval), str(traceback.format_tb(errtrace)))
-#            logger.error(hemsg)
+        except GracenoteAppExcepion as ge:
+            logger.error(ge.errmsg)
+            (errtype, errval, errtrace) = sys.exc_info()
+            hemsg = st.EMS_BODY.format(str(errtype), str(errval), str(traceback.format_tb(errtrace)))
+            logger.error(hemsg)
 
         except Exception:
             logger.error(st.EMS_SYSTEMERR.format(st.ECD_SYSTEMERR))
