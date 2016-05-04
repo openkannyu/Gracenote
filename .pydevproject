@@ -8,9 +8,9 @@
 </pydev_variables_property>
 <pydev_pathproperty name="org.python.pydev.PROJECT_SOURCE_PATH">
 <path>/${PROJECT_DIR_NAME}/Gracenote/management/util</path>
-<path>/${PROJECT_DIR_NAME}/Gracenote/management</path>
-<path>/${PROJECT_DIR_NAME}/Gracenote</path>
 <path>/${PROJECT_DIR_NAME}/Gracenote/management/exception</path>
-<path>/${PROJECT_DIR_NAME}</path>
+<path>/${PROJECT_DIR_NAME}/Gracenote/management/bean</path>
+<path>/${PROJECT_DIR_NAME}/Gracenote/management/commands</path>
+<path>/${PROJECT_DIR_NAME}/Gracenote</path>
 </pydev_pathproperty>
 </pydev_project>

@@ -1,6 +1,9 @@
 eclipse.preferences.version=1
+encoding//.settings/org.python.pydev.analysis.yaml=UTF-8
 encoding//Gracenote/grace.d/data/inputMZ.txt=UTF-8
+encoding//Gracenote/management/bean/ResultData.py=utf-8
 encoding//Gracenote/management/commands/search.py=utf-8
+encoding//Gracenote/management/commands/ysearch.py=utf-8
 encoding//Gracenote/management/exception/GracenoteAppExcepion.py=utf-8
 encoding//Gracenote/settings.py=utf-8
 encoding/manage.py=UTF-8

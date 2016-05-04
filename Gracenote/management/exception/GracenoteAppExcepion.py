@@ -9,8 +9,8 @@ Created on 2016/03/23
 '''
 
 
-class GracenoteAppExcepion(Exception):
+class GracenoteAppExcepion( Exception ):
 
-    def __init__(self, errcd, errmsg):
+    def __init__( self, errcd, errmsg ):
         self.errcd = errcd
         self.errmsg = errmsg
