@@ -86,7 +86,7 @@ DATA_ROOT = os.path.join( GRACED_ROOT  , "data" )
 # For api setting
 # API_CERT            = os.path.join(CERT_ROOT, "cacert.pem")
 # API_CONTENT_TYPE    = {"Content-Type":"application/json; charset=utf-8"}
-API_CLIENT_ID = '9150464-1EA8A3AD08C157CC4F4207C68D6B0E6B'
+API_CLIENT_ID = ''
 
 
 # For search batch errrmsg
@@ -163,11 +163,11 @@ LOGGING = {
       'level':'INFO',
     },
     'Gracenote.management.commands.search': {
-      'handlers': ['file_verbose', ],
+      'handlers': ['console_verbose', ],
       'level': 'INFO',
     },
     'Gracenote.management.bean.ResultData': {
-      'handlers': ['file_verbose', ],
+      'handlers': ['console_verbose', ],
       'level': 'INFO',
     },
   }

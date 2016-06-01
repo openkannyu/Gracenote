@@ -10,7 +10,7 @@ Created on 2016/03/28
 import json
 import logging
 
-import pgyn
+import pygn
 
 
 logger = logging.getLogger( __name__ )
@@ -32,13 +32,9 @@ class ResultData( object ):
       self.albumYear = "-"
       self.mcount = 0
 
-    def search(self, clientID = _clientID, userID = _userID, artist = _artist, track = _track ):
-      r = pygn.search( clientID = _clientID, userID = _userID, artist = _artist, track = _track )
-      rs = json.dumps( r, sort_keys = True, indent = 4 )
-      logger.debug( rs.decode( 'unicode_escape' ))
-
+    def loadResult(self, resultString):
       # Parsing resultString
-      dictMZ = json.loads( rs, "utf-8" )
+      dictMZ = json.loads( resultString, "utf-8" )
       logger.debug( "dictMZ=" + str( dictMZ ).decode( 'unicode_escape' ))
 
       if dictMZ is not None:
@@ -55,11 +51,5 @@ class ResultData( object ):
          logger.debug( "dictMZ is not None")
       else:
          logger.debug( "dictMZ is None")
-
-      # Count Point LR
-      if(self.trackTitle.lower() == _track.lower()): self.mcount = self.mcount + 1
-      if(self.albumArtistName.lower() == _artist.lower()): self.mcount = self.mcount + 1
-      logger.debug( "trackTitle.lower(): " + self.trackTitle.lower() + "\t" + "_trackL.lower(): " + _trackL.lower() )
-      logger.debug( "albumArtistName.lower(): " + self.albumArtistName.lower() + "\t" + "_artistL.lower(): " + _artistL.lower() )
 
       return self
