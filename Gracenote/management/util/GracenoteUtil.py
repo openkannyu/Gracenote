@@ -1,8 +1,15 @@
+# coding: utf-8
 '''
 Created on 2016/06/09
 
-@author: kannyu
+@author: openkannyu
 '''
+
+import codecs
+import copy
+import os
+import re
+
 
 class GracenoteUtil(object):
     '''
@@ -16,33 +23,36 @@ class GracenoteUtil(object):
     def convertTitle(line):
       line = line.replace( u"／" , u"/")\
                  .replace( u"－" , u"-")\
-                 .replace( u"-+" , u"-")\
+                 .replace( u"–" , u"-")\
                  .replace( u"　" , u" ")\
-                 .replace( u" +" , u" ")\
                  .replace( u"（" , u"\\(")\
                  .replace( u"［" , u"\\[")\
                  .replace( u"）" , u"\\)")\
                  .replace( u"］" , u"\\]")
 
       # Common Pattern
-      cm_ptn01 = u"\\(.*\\)"
-      cm_ptn02 = u"\.avi|\.mkv|\.mpg|\.iso|\.wmv|\.mp4|\.asf|\.m4v|\.rmvb"
-      cm_ptn03 = u" - 19[0-9][0-9] \[Brazil\]$"
-      cm_ptn04 = u" - 19[0-9][0-9] \[Soul-Jazz\]$"
-      cm_ptn05 = u" - Jazz Funk$"
-      cm_ptn06 = u" - Jazz Fusion$"
-      cm_ptn07 = u"^A JazzMan Dean Upload - "
-      cm_ptn08 = u"^A FLG Maurepas upload - "
-  
-      line = re.sub(cm_ptn01, "", line)
-      line = re.sub(cm_ptn02, "", line)
-      line = re.sub(cm_ptn03, "", line)
-      line = re.sub(cm_ptn04, "", line)
-      line = re.sub(cm_ptn05, "", line)
-      line = re.sub(cm_ptn06, "", line)
-      line = re.sub(cm_ptn07, "", line)
-      line = re.sub(cm_ptn08, "", line)
-  
+      cm_ptn01 =  u"-+"
+      cm_ptn02 =  u" +"
+      cm_ptn03 = u"\\(.*\\)"
+      cm_ptn04 = u"\.avi|\.mkv|\.mpg|\.iso|\.wmv|\.mp4|\.asf|\.m4v|\.rmvb"
+      cm_ptn05 = u" - 19[0-9][0-9] \[Brazil\]$"
+      cm_ptn06 = u" - 19[0-9][0-9] \[Soul-Jazz\]$"
+      cm_ptn07 = u" - Jazz Funk$"
+      cm_ptn08 = u" - Jazz Fusion$"
+      cm_ptn09 = u"^A JazzMan Dean Upload - "
+      cm_ptn10 = u"^A FLG Maurepas upload - "
+
+      line = re.sub(cm_ptn01, u"-", line)
+      line = re.sub(cm_ptn02, u" ", line)
+      line = re.sub(cm_ptn03, u"", line)
+      line = re.sub(cm_ptn04, u"", line)
+      line = re.sub(cm_ptn05, u"", line)
+      line = re.sub(cm_ptn06, u"", line)
+      line = re.sub(cm_ptn07, u"", line)
+      line = re.sub(cm_ptn08, u"", line)
+      line = re.sub(cm_ptn09, u"", line)
+      line = re.sub(cm_ptn10, u"", line)
+
       # Track Pattern
       line_track = copy.copy(line)
   

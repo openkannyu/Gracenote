@@ -83,17 +83,26 @@ LOG_ROOT = os.path.join( GRACED_ROOT  , "log" )
 DATA_ROOT = os.path.join( GRACED_ROOT  , "data" )
 
 
-# For api setting
+# For Youtube API setting
 # API_CERT            = os.path.join(CERT_ROOT, "cacert.pem")
-# API_CONTENT_TYPE    = {"Content-Type":"application/json; charset=utf-8"}
-API_CLIENT_ID = ''
+YT_API_CONTENT_TYPE    = {"Content-Type":"application/json; charset=utf-8"}
+YT_API_URI = "https://www.googleapis.com/youtube/v3/videos"
+YT_API_KEY = '' #Google Developers Console から登録・取得したAPIキーを設定してください
+YT_API_PART = "snippet,contentDetails,statistics,status"
+YT_API_CONN_TIMEOUT    = 1800
+YT_API_READ_TIMEOUT    = 1800
+
+# For Gracenote API setting
+# API_CERT            = os.path.join(CERT_ROOT, "cacert.pem")
+GR_API_CONTENT_TYPE    = {"Content-Type":"application/json; charset=utf-8"}
+GR_API_CLIENT_ID = '' #Gracenote API Console から登録・取得したクライアントIDを設定してください。
 
 
 # For search batch errrmsg
 EMS_BODY = "ERRTYPE={0}  ERRVAL={1}  TRACEBACK={2}"
 # EMS_LOCKFILE_EXISTS = "ERRCODE={0}  ERRMSG=Lock file is already exist. LOCKFILE={1}"
 # EMS_API_RETRY_OVER = "ERRCODE={0}  ERRMSG=API retry over error. RETRY_COUNT={1}"
-# EMS_API_SVRERR = "ERRCODE={0}  ERRMSG=API server error ocurred. API_RESULT={1}"
+EMS_API_SVRERR = "ERRCODE={0}  ERRMSG=API server error ocurred. API_RESULT={1}"
 EMS_SYSTEMERR = "ERRCODE={0}  ERRMSG=System error is occured."
 
 
@@ -101,12 +110,12 @@ EMS_SYSTEMERR = "ERRCODE={0}  ERRMSG=System error is occured."
 # ECD_LOCKFILE_EXISTS = "E100"
 # ECD_API_RANGE = "E200"
 # ECD_API_RETRY_OVER = "E700"
-# ECD_API_SVRERR = "E701"
+ECD_API_SVRERR = "E701"
 ECD_SYSTEMERR = "E900"
 
 
 # For api return status
-# HTTP_OK = 200
+HTTP_OK = 200
 # HTTP_BAD_REQUEST            =400
 # HTTP_UNAUTHORIZED           =401
 # HTTP_NOTFOUND               =404
@@ -163,11 +172,11 @@ LOGGING = {
       'level':'INFO',
     },
     'Gracenote.management.commands.search': {
-      'handlers': ['console_verbose', ],
+      'handlers': ['file_verbose', ],
       'level': 'INFO',
     },
     'Gracenote.management.bean.ResultData': {
-      'handlers': ['console_verbose', ],
+      'handlers': ['file_verbose', ],
       'level': 'INFO',
     },
   }
